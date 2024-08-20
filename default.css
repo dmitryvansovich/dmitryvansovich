@@ -1,0 +1,36 @@
+body {
+    margin: 0px;
+    padding: 0px;
+
+    font-family: 'SF Pro Display';
+
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.4px;
+
+    background-color: #ffffff;
+    color: #000000;
+
+    max-width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+html {
+    scroll-behavior: smooth;
+}
+* {
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
+img { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-user-drag: none; }
+img[src=""] {
+    display: none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+a:hover {
+    cursor: pointer;
+}

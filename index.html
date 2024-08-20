@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dmitryvansovich.</title>
+
+    <link href="font/stylesheet.css" rel="stylesheet">
+    <link rel="stylesheet" href="default.css">
+    <link rel="stylesheet" href="index.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+</head>
+<body>
+    <nav class="navigation">
+        <div class="navigation-container">
+            <div class="navigation-container-logo">
+                dmitryvansovich.
+            </div>
+            <div class="navigation-container-languages">
+                <div class="language-selected" id="language-selected">en</div>
+                <div id="lang1" class="navigation-container-languages-language" onclick="changeLanguage(1)">EN</div>
+                <div id="lang2" class="navigation-container-languages-language" onclick="changeLanguage(2)">PL</div>
+                <div id="lang3" class="navigation-container-languages-language" onclick="changeLanguage(3)">RU</div>
+            </div>
+        </div>
+    </nav>
+    <section class="header" style="background-image:url(bg.svg)">
+        <div class="header-container">
+            <div class="header-container-text">
+                <span id="header-container-text"></span>
+                <div class="header-containter-text-links">
+                    <a class="header-containter-text-links-link tg">
+                        <img class="icon" src="telegram.svg"/> +48798234039
+                    </a>
+                    <a class="header-containter-text-links-link wa">
+                        <img class="icon" src="whatsapp.svg"/> +48798234039
+                    </a>
+                    <a class="header-containter-text-links-link gh">
+                        <img class="icon" src="github.svg"/> dmitryvansovich
+                    </a>
+                    <a class="header-containter-text-links-link gm">
+                        <img class="icon" src="gmail.svg"/> dmitryvansovich
+                    </a>
+                    <a class="header-containter-text-links-link maps">
+                        <img class="icon" src="maps.svg"/> Poland, Lublin
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="projects">
+        <div class="projects-container" id="projects"></div>
+    </section>
+    
+    <script>
+        let language_selected = localStorage.getItem('language_selected') || 1;
+        let language_selected_dom = document.getElementById('language-selected');
+        function changeLanguage(lang){
+            if(lang < 1 && lang > 3) return;
+
+            let __ = lang-1;
+            let left = 2;
+            while(__ > 0){
+                left += document.getElementById('lang' + __).getBoundingClientRect().width + 2;
+                __--;
+            }
+
+            language_selected_dom.style.left = `${left}px`;
+            language_selected_dom.innerHTML = document.getElementById('lang' + lang).innerHTML;
+
+            localStorage.setItem('language_selected', lang);
+            language_selected = lang;
+
+            renderProjects();
+        }
+    </script>
+    <script>
+        const PROJECTS = {
+            'en': [
+                {
+                    image: 'projects/metacoin.gif',
+                    title: 'Presentation Website',
+                    description: 'I developed a presentation website for a cryptocurrency token, effectively showcasing its concept, features, and advantages. The site includes information about the project, roadmap, team, and token benefits, providing potential investors and users with all the necessary data to make decisions.',
+                    languages: ['html','css','js','nodejs','express','apache','ton'],
+                    dates: '02.03.2023 - 02.10.2023'
+                },{
+                    image: 'projects/metamultiplayer.gif',
+                    title: 'Metaverse',
+                    description: 'I developed a metaverse on the TON blockchain where users can create their own structures, play with friends, and communicate. The platform combines elements of creativity, interaction, and blockchain technology, offering unique opportunities for collective virtual experiences and economics.',
+                    languages: ['html','css','js','nodejs','express','mysql','apache','tg','ton'],
+                    dates: '08.30.2022 - 11.15.2022'
+                },{
+                    image: 'projects/timetable.jpg',
+                    title: 'Scheduling Algorithm for BNTU',
+                    description: 'The scheduling algorithm for BNTU is an automated process that takes into account multiple factors: teacher availability, group schedules, subject requirements, and classroom availability. The goal is to create an optimal academic schedule, minimizing conflicts and increasing efficiency.',
+                    languages: ['html','css','js','nodejs','express','mysql','apache'],
+                    dates: '05.10.2022 - 02.26.2023'
+                },{
+                    image: 'projects/bntufaq.gif',
+                    title: 'BNTU FAQ',
+                    description: 'I developed the BNTU FAQ website where students can submit problem reports to be resolved within the university, as well as find answers to frequently asked questions through articles with useful information. The platform simplifies interaction with the administration and helps students quickly receive support and advice.',
+                    languages: ['html','css','js','nodejs','express','mysql','apache','tg'],
+                    dates: '04.07.2021 - 05.12.2021'
+                },{
+                    image: 'projects/journal.jpg',
+                    title: 'BNTU Electronic Journal',
+                    description: 'The electronic journal for BNTU is a digital platform for tracking student performance and attendance. Teachers can quickly enter grades and comments, and students and administration can track progress in real time, improving transparency and the efficiency of the educational process.',
+                    languages: ['html','css','js','nodejs','express','mysql','apache','tg'],
+                    dates: '12.10.2020 - 03.30.2021'
+                },{
+                    image: 'projects/videofortwo.jpg',
+                    title: 'Synchronized Video Watching with Friends',
+                    description: 'I developed a website for synchronized video watching with friends, where the video plays simultaneously for all room participants. This allows you to watch videos together as if you were sitting next to each other, with options for pausing, rewinding, and discussing in real time, creating a shared presence effect.',
+                    languages: ['html','css','js','express','apache'],
+                    dates: '08.03.2020 - 08.14.2020'
+                },{
+                    image: 'projects/rohspecials.jpg',
+                    title: 'Game Project Bug Tracker',
+                    description: 'I developed a bug tracker for a game where all reporters remain anonymous. This allows users to report bugs confidentially, maintaining objectivity and honesty in reports. The system efficiently logs and sorts bugs, helping to improve the quality of the game without revealing the identity of the reporters.',
+                    languages: ['html','css','js','express','apache','tg'],
+                    dates: '04.01.2020 - 05.07.2020'
+                },{
+                    image: 'projects/onslices.jpg',
+                    title: 'Onslices',
+                    description: 'Onslices ("by pieces") is an educational website where school material is broken down into small, easily digestible parts. Each topic is presented in a structured and clear manner, helping students gradually master the material and improve their understanding of complex topics.',
+                    languages: ['html','css','js','nodejs','express','mysql','apache'],
+                    dates: '12.06.2019 - 01.10.2020'
+                },{
+                    image: 'projects/stop.jpg',
+                    title: 'STOP!',
+                    description: 'STOP! is an Android game I developed where the player must stop a moving block directly above another block, avoiding traps and obstacles. The goal of the game is to test reflexes and accuracy, with the difficulty increasing at each level, requiring more attention and skill from the player.',
+                    languages: ['html','css','js','as','java'],
+                    dates: '11.01.2019 - 11.15.2019'
+                },{
+                    image: 'projects/arbour.jpg',
+                    title: 'Arbour',
+                    description: 'Arbour is a multiplayer game I created where players fight each other, controlling various characters, each with unique abilities. The game combines strategy and dynamic battles, requiring players to use hero skills and tactics to win.',
+                    languages: ['html','css','js','express','apache'],
+                    dates: '01.14.2019 - 02.10.2019'
+                },{
+                    image: 'projects/postmylife.jpg',
+                    title: 'Social Network PostMyLife',
+                    description: 'PostMyLife is a social network I developed to practice working with databases and account management. The platform allows users to create profiles, share posts, and interact with each other, providing effective learning of web development and backend fundamentals.',
+                    languages: ['html','css','js','nodejs','express','apache'],
+                    dates: 'Summer 2016'
+                }
+            ],
+            'pl': [
+                {
+                    image: 'projects/metacoin.gif',
+                    title: 'Strona-prezentacja',
+                    description: 'Stworzyłem stronę-prezentację dla tokena kryptowaluty, która skutecznie przedstawia jego koncepcję, cechy i zalety. Strona zawiera informacje o projekcie, mapę drogową, zespół i korzyści tokena, dostarczając potencjalnym inwestorom i użytkownikom wszystkie niezbędne dane do podejmowania decyzji.',
+                    languages: ['html','css','js','nodejs','express','apache','ton'],
+                    dates: '03.02.2023 - 10.02.2023'
+                },{
+                    image: 'projects/metamultiplayer.gif',
+                    title: 'Metawersum',
+                    description: 'Stworzyłem metawersum na blockchainie TON, gdzie użytkownicy mogą tworzyć własne budowle, grać z przyjaciółmi i komunikować się. Platforma łączy elementy kreatywności, interakcji i technologii blockchain, oferując unikalne możliwości dla wspólnych doświadczeń wirtualnych i ekonomicznych.',
+                    languages: ['html','css','js','nodejs','express','mysql','apache','tg','ton'],
+                    dates: '30.08.2022 - 15.11.2022'
+                },{
+                    image: 'projects/timetable.jpg',
+                    title: 'Algorytm generowania harmonogramu dla BNTU',
+                    description: 'Algorytm generowania harmonogramu dla BNTU to zautomatyzowany proces uwzględniający wiele czynników: dostępność wykładowców, harmonogramy grup, wymagania przedmiotów i dostępność sal. Celem jest stworzenie optymalnego harmonogramu zajęć, minimalizując konflikty i zwiększając efektywność.',
+                    languages: ['html','css','js','nodejs','express','mysql','apache'],
+                    dates: '10.05.2022 - 26.02.2023'
+                },{
+                    image: 'projects/bntufaq.gif',
+                    title: 'BNTU FAQ',
+                    description: 'Stworzyłem stronę BNTU FAQ, gdzie studenci mogą zgłaszać problemy do rozwiązania na uczelni oraz znaleźć odpowiedzi na najczęściej zadawane pytania poprzez artykuły z przydatnymi informacjami. Platforma ułatwia interakcję z administracją i pomaga szybko uzyskać wsparcie i porady.',
+                    languages: ['html','css','js','nodejs','express','mysql','apache','tg'],
+                    dates: '07.04.2021 - 12.05.2021'
+                },{
+                    image: 'projects/journal.jpg',
+                    title: 'Elektroniczny dziennik BNTU',
+                    description: 'Elektroniczny dziennik dla BNTU to cyfrowa platforma do rejestrowania postępów i frekwencji studentów. Wykładowcy mogą szybko wprowadzać oceny i komentarze, a studenci i administracja mogą na bieżąco śledzić postępy, co zwiększa przejrzystość i efektywność procesu edukacyjnego.',
+                    languages: ['html','css','js','nodejs','express','mysql','apache','tg'],
+                    dates: '10.12.2020 - 30.03.2021'
+                },{
+                    image: 'projects/videofortwo.jpg',
+                    title: 'Synchronized video watching with friends',
+                    description: 'Stworzyłem stronę do synchronizowanego oglądania wideo z przyjaciółmi, gdzie wideo u wszystkich uczestników pokoju jest odtwarzane jednocześnie. Umożliwia to wspólne oglądanie filmów, jakbyście byli obok siebie, z możliwością pauzy, przewijania i omawiania w czasie rzeczywistym, tworząc efekt wspólnej obecności.',
+                    languages: ['html','css','js','express','apache'],
+                    dates: '03.08.2020 - 14.08.2020'
+                },{
+                    image: 'projects/rohspecials.jpg',
+                    title: 'Bug tracker projektu gry',
+                    description: 'Stworzyłem bug tracker do gry, gdzie wszyscy raportujący pozostają anonimowi. Umożliwia to użytkownikom zgłaszanie błędów poufnie, zachowując obiektywność i uczciwość raportów. System efektywnie rejestruje i sortuje błędy, pomagając poprawić jakość gry bez ujawniania tożsamości raportujących.',
+                    languages: ['html','css','js','express','apache','tg'],
+                    dates: '01.04.2020 - 07.05.2020'
+                },{
+                    image: 'projects/onslices.jpg',
+                    title: 'Onslices',
+                    description: 'Onslices ("na kawałki") to edukacyjna strona internetowa, na której materiał szkolny jest podzielony na małe, łatwo przyswajalne części. Każdy temat jest przedstawiony w sposób uporządkowany i zrozumiały, co pomaga uczniom stopniowo opanować materiał i lepiej zrozumieć trudne zagadnienia.',
+                    languages: ['html','css','js','nodejs','express','mysql','apache'],
+                    dates: '06.12.2019 - 10.01.2020'
+                },{
+                    image: 'projects/stop.jpg',
+                    title: 'STOP!',
+                    description: 'STOP! to gra na Androida, którą stworzyłem, w której gracz musi zatrzymać poruszający się blok dokładnie nad innym blokiem, unikając pułapek i przeszkód. Celem gry jest sprawdzenie refleksu i precyzji, a z każdym poziomem trudność wzrasta, wymagając coraz większej uwagi i zręczności.',
+                    languages: ['html','css','js','as','java'],
+                    dates: '01.11.2019 - 15.11.2019'
+                },{
+                    image: 'projects/arbour.jpg',
+                    title: 'Arbour',
+                    description: 'Arbour to stworzona przeze mnie gra wieloosobowa, w której gracze walczą ze sobą, kontrolując różne postacie, z których każda ma unikalne umiejętności. Gra łączy strategię i dynamiczne walki, wymagając od graczy umiejętności wykorzystywania zdolności bohaterów i taktyki do zwycięstwa.',
+                    languages: ['html','css','js','express','apache'],
+                    dates: '14.01.2019 - 10.02.2019'
+                },{
+                    image: 'projects/postmylife.jpg',
+                    title: 'Postmylife',
+                    description: 'PostMyLife to stworzona przeze mnie sieć społecznościowa do ćwiczeń pracy z bazami danych i zarządzania kontami. Platforma umożliwia użytkownikom tworzenie profili, udostępnianie postów i interakcję z innymi, zapewniając efektywną naukę podstaw tworzenia stron internetowych i backendu.',
+                    languages: ['html','css','js','nodejs','express','apache'],
+                    dates: 'Lato 2016 roku'
+                }
+            ],
+            'ru': [
+                {
+                    image: 'projects/metacoin.gif',
+                    title: 'Сайт-презентация',
+                    description: 'Я разработал сайт-презентацию для токена криптовалюты, который эффективно представляет его концепцию, особенности и преимущества. Сайт включает информацию о проекте, дорожную карту, команду и преимущества токена, предоставляя потенциальным инвесторам и пользователям все необходимые данные для принятия решений.',
+                    languages: ['html','css','js','nodejs','express','apache','ton'],
+                    dates: '03.02.2023 - 10.02.2023'
+                },{
+                    image: 'projects/metamultiplayer.gif',
+                    title: 'Метавселенная',
+                    description: 'Я разработал метавселенную на блокчейне TON, где пользователи могут создавать собственные постройки, играть вместе с друзьями и общаться. Платформа объединяет элементы творчества, взаимодействия и блокчейн-технологий, предоставляя уникальные возможности для коллективного виртуального опыта и экономики.',
+                    languages: ['html','css','js','nodejs','express','mysql','apache','tg','ton'],
+                    dates: '30.08.2022 - 15.11.2022'
+                },{
+                    image: 'projects/timetable.jpg',
+                    title: 'Алгоритм генерации расписания для БНТУ',
+                    description: 'Алгоритм генерации расписания для БНТУ — это автоматизированный процесс, учитывающий множество факторов: доступность преподавателей, расписание групп, требования по предметам и наличие аудиторий. Цель — создать оптимальное учебное расписание, минимизируя конфликты и повышая эффективность.',
+                    languages: ['html','css','js','nodejs','express','mysql','apache'],
+                    dates: '10.05.2022 - 26.02.2023'
+                },{
+                    image: 'projects/bntufaq.gif',
+                    title: 'BNTU FAQ',
+                    description: 'Я разработал сайт BNTU FAQ, где студенты могут оставить заявку на решение проблем в университете, а также найти ответы на часто задаваемые вопросы через статьи с полезной информацией. Платформа упрощает взаимодействие с администрацией и помогает быстро получать необходимую поддержку и советы.',
+                    languages: ['html','css','js','nodejs','express','mysql','apache','tg'],
+                    dates: '07.04.2021 - 12.05.2021'
+                },{
+                    image: 'projects/journal.jpg',
+                    title: 'Электронный журнал БНТУ',
+                    description: 'Электронный журнал для БНТУ — это цифровая платформа для учета успеваемости и посещаемости студентов. Преподаватели могут оперативно вносить оценки и комментарии, а студенты и администрация — отслеживать прогресс в режиме реального времени, что улучшает прозрачность и эффективность учебного процесса.',
+                    languages: ['html','css','js','nodejs','express','mysql','apache','tg'],
+                    dates: '10.12.2020 - 30.03.2021'
+                },{
+                    image: 'projects/videofortwo.jpg',
+                    title: 'Синхронный просмотр видео с друзьями',
+                    description: 'Я разработал сайт для синхронного просмотра видео с друзьями, где видео у всех участников комнаты проигрывается одновременно. Это позволяет смотреть ролики вместе, как будто вы находитесь рядом, с возможностью паузы, перемотки и обсуждения в реальном времени, создавая эффект совместного присутствия.',
+                    languages: ['html','css','js','express','apache'],
+                    dates: '03.08.2020 - 14.08.2020'
+                },{
+                    image: 'projects/rohspecials.jpg',
+                    title: 'Баг-трекер игрового проекта',
+                    description: 'Я разработал баг-трекер для игры, где все репортеры остаются анонимными. Это позволяет пользователям сообщать об ошибках конфиденциально, сохраняя объективность и честность отчётов. Система эффективно фиксирует и сортирует баги, помогая улучшить качество игры без раскрытия личности репортеров.',
+                    languages: ['html','css','js','express','apache','tg'],
+                    dates: '01.04.2020 - 07.05.2020'
+                },{
+                    image: 'projects/onslices.jpg',
+                    title: 'Onslices',
+                    description: 'Onslices ("по кусочкам") — это образовательный сайт, на котором школьный материал разбит на небольшие, легко усваиваемые части. Каждая тема представлена структурировано и понятно, что помогает ученикам постепенно освоить учебный материал и улучшить понимание сложных тем.',
+                    languages: ['html','css','js','nodejs','express','mysql','apache'],
+                    dates: '06.12.2019 - 10.01.2020'
+                },{
+                    image: 'projects/stop.jpg',
+                    title: 'STOP!',
+                    description: 'STOP! — это разработанная мной Android-игра, в которой игрок должен вовремя остановить движущийся блок точно над другим блоком, избегая ловушек и препятствий. Цель игры — проверить реакцию и точность, с каждым уровнем сложность увеличивается, требуя от игрока всё больше внимательности и ловкости.',
+                    languages: ['html','css','js','as','java'],
+                    dates: '01.11.2019 - 15.11.2019'
+                },{
+                    image: 'projects/arbour.jpg',
+                    title: 'Arbour',
+                    description: 'Arbour — это созданная мной многопользовательская игра, где игроки сражаются друг с другом, управляя различными персонажами, каждый из которых обладает уникальными способностями. Игра сочетает стратегию и динамичные бои, требуя от игроков умения использовать навыки героев и тактику для победы.',
+                    languages: ['html','css','js','express','apache'],
+                    dates: '14.01.2019 - 10.02.2019'
+                },{
+                    image: 'projects/postmylife.jpg',
+                    title: 'Социальная сеть postmylife',
+                    description: 'PostMyLife — это разработанная мной социальная сеть для практики работы с базами данных и управления аккаунтами. Платформа позволяет пользователям создавать профили, делиться постами и взаимодействовать друг с другом, обеспечивая эффективное обучение основам веб-разработки и бэкенда.',
+                    languages: ['html','css','js','nodejs','express','apache'],
+                    dates: 'Лето 2016 года'
+                }
+            ]
+        };
+
+        const HEADER_TEXT = {
+            'en': 'Welcome to my portfolio!<br><br>Here you will find examples of my work, projects, and skills that reflect my experience and creative approach. I am passionate about creating effective solutions and constantly strive to improve my skills. My projects cover various aspects of development, from working with databases to creating user interfaces. I would be happy to share my ideas and experiences.<br><br>Enjoy your viewing!',
+            'pl': 'Witamy w moim portfolio!<br><br>Tutaj znajdziesz przykłady moich prac, projektów i umiejętności, które odzwierciedlają moje doświadczenie i kreatywne podejście. Pasjonuję się tworzeniem skutecznych rozwiązań i ciągle dążę do doskonalenia swoich umiejętności. Moje projekty obejmują różne aspekty rozwoju, od pracy z bazami danych po tworzenie interfejsów użytkownika. Chętnie podzielę się swoimi pomysłami i doświadczeniami.<br><br>Miłego oglądania!',
+            'ru': 'Добро пожаловать в мое портфолио!<br><br>Здесь вы найдете примеры моих работ, проекты и навыки, которые отражают мой опыт и творческий подход. Я увлечен созданием эффективных решений и постоянно стремлюсь к совершенствованию своих навыков. Мои проекты охватывают различные аспекты разработки, от работы с базами данных до создания пользовательских интерфейсов. Буду рад поделиться своими идеями и опытом.<br><br>Приятного просмотра!'
+        }
+
+        function renderProjects(){
+            let html = ``;
+            let projects_by_language = [];
+            let lang_notnum = '';
+            
+            if(language_selected == 1) lang_notnum = 'en';
+            else if(language_selected == 2) lang_notnum = 'pl';
+            else if(language_selected == 3) lang_notnum = 'ru';
+            
+            projects_by_language = PROJECTS[lang_notnum];
+            document.getElementById('header-container-text').innerHTML = HEADER_TEXT[lang_notnum]
+
+            for(let i in projects_by_language){
+                let project_languages = ``;
+
+                for(let l in projects_by_language[i].languages){
+                    if(projects_by_language[i].languages[l] === 'html') project_languages += `<div class="projects-container-project-skills-skill html"><i class="devicon-html5-plain"></i> HTML</div>`;
+                    if(projects_by_language[i].languages[l] === 'css') project_languages += `<div class="projects-container-project-skills-skill css"><i class="devicon-css3-plain"></i> CSS</div>`;
+                    if(projects_by_language[i].languages[l] === 'js') project_languages += `<div class="projects-container-project-skills-skill js"><i class="devicon-javascript-plain"></i> JavaScript</div>`;
+                    if(projects_by_language[i].languages[l] === 'ts') project_languages += `<div class="projects-container-project-skills-skill ts"><i class="devicon-typescript-plain"></i> TypeScript</div>`;
+                    if(projects_by_language[i].languages[l] === 'nodejs') project_languages += `<div class="projects-container-project-skills-skill nodejs"><i class="devicon-nodejs-plain"></i> Node.js</div>`;
+                    if(projects_by_language[i].languages[l] === 'express') project_languages += `<div class="projects-container-project-skills-skill express"><i class="devicon-express-original"></i> Express.js</div>`;
+                    if(projects_by_language[i].languages[l] === 'threejs') project_languages += `<div class="projects-container-project-skills-skill threejs"><i class="devicon-threejs-original"></i> THREE.js</div>`;
+                    if(projects_by_language[i].languages[l] === 'mysql') project_languages += `<div class="projects-container-project-skills-skill mysql"><i class="devicon-mysql-original"></i> MySQL</div>`;
+                    if(projects_by_language[i].languages[l] === 'apache') project_languages += `<div class="projects-container-project-skills-skill apache"><i class="devicon-apache-plain"></i> Apache</div>`;
+                    if(projects_by_language[i].languages[l] === 'as') project_languages += `<div class="projects-container-project-skills-skill as"><i class="devicon-androidstudio-plain"></i> Android Studio</div>`;
+                    if(projects_by_language[i].languages[l] === 'java') project_languages += `<div class="projects-container-project-skills-skill java"><i class="devicon-java-plain"></i> Java</div>`;
+                    if(projects_by_language[i].languages[l] === 'tg') project_languages += `<div class="projects-container-project-skills-skill tg"><img class="icon" src="telegram.svg"/> Telegram bots</div>`;
+                    if(projects_by_language[i].languages[l] === 'ton') project_languages += `<div class="projects-container-project-skills-skill ton"><img class="icon" src="ton.svg"/> Toncoin (TON)</div>`;
+                }
+
+                html += `
+                   <div class="projects-container-project">
+                        <div class="projects-container-project-image">
+                            <div class="projects-container-project-image-pic" style="background-image:url(${projects_by_language[i].image})"></div>
+                            <div class="projects-container-project-image-header">${projects_by_language[i].title}</div>
+                        </div>
+                        <div class="projects-container-project-skills">${project_languages}</div>
+                        <div class="projects-container-project-text">${projects_by_language[i].description}</div>
+                        <div class="projects-container-project-footer">${projects_by_language[i].dates}</div>
+                    </div> 
+                `;
+            }
+
+            document.getElementById('projects').innerHTML = html;
+        };
+    </script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function(){
+            changeLanguage(language_selected);
+            renderProjects();
+        });
+    </script>
+</body>
+</html>
