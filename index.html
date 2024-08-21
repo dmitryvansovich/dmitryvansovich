@@ -54,7 +54,8 @@
     </section>
     
     <script>
-        let language_selected = localStorage.getItem('language_selected') || 2;
+        // let language_selected = localStorage.getItem('language_selected') || 1;
+        let language_selected = 2;
         let language_selected_dom = document.getElementById('language-selected');
         function changeLanguage(lang){
             if(lang < 1 && lang > 3) return;
